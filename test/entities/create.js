@@ -65,7 +65,7 @@ module.exports = {
                                     entityReturn.should.be.an.instanceOf(Array)
                                     size = entityReturn.length;
                                     count++;
-                                    setTimeout(whilstCb,250);
+                                    setTimeout(whilstCb,500);
                                 });
                             },
                             function(err){
