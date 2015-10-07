@@ -50,15 +50,34 @@ module.exports = {
                         bodies.forEach(function (body) {
                             bodyMap[body.uuid] = body;
                         });
-                        entities.get(collectionName+n, numberOfRecordsConsistent, function (err, entityArray) {
-                            should(err).be.null;
-                            next(err,entityArray);
-                        });
+                        var count = 0;
+                        var size = 0;
+                        var entityReturn = [];
+                        async.until(
+                            function(){
+                                return size >= bodies.length || count > 10;
+                            },
+                            function(whilstCb) {
+                                entities.getWithQuery(collectionName+n,"select * where consistentProperty='somethingConsistent'", numberOfRecordsConsistent, function (err, entityArray) {
+                                    should(err).be.null;
+                                    entityReturn = entityArray.entities;
+
+                                    entityReturn.should.be.an.instanceOf(Array)
+                                    size = entityReturn.length;
+                                    count++;
+                                    setTimeout(whilstCb,250);
+                                });
+                            },
+                            function(err){
+                                next(err, entityReturn);
+                            }
+                        )
+
                     });
                 },
                     function(err,list){
                         list.forEach(function (listOfEntities) {
-                            listOfEntities.entities.forEach(function(entity){
+                            listOfEntities.forEach(function(entity){
                                 delete(bodyMap[entity.uuid]);
                             });
                         });

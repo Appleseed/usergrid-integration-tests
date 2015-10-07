@@ -19,7 +19,8 @@ var config = require("../config/");
 var setup = require("./setup");
 var teardown = require("./teardown");
 var async = require('async');
-var request = require('request');
+var request = require("../lib/request");
+
 var colors = require('colors');
 
 var entities = require('../lib/entities');
