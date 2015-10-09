@@ -39,7 +39,7 @@ module.exports = {
             });
             var query2 = "where consistentProperty contains '*ethi*'";
             // skipping this test for now since it doesn't work in 1.0
-            it.skip('should return ' + config.numberOfEntities + ' results ' + query2, function(done) {
+            it('should return ' + config.numberOfEntities + ' results ' + query2, function(done) {
                 entities.getWithQuery(config.genericTestCollection1, query2, maxNumberOfEntities, function(err, body) {
                     should(err).be.null;
                     body.entities.should.be.an.instanceOf(Array);
