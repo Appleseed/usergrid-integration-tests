@@ -14,6 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+'use strict';
 var should = require("should");
 var uuid = require("uuid");
 var notifications = require("../../lib/notifications");

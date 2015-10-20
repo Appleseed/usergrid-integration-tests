@@ -14,6 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+'use strict';
 var entities = require("../../lib/entities");
 var should = require("should");
 var async = require('async');
@@ -25,7 +26,7 @@ module.exports = {
         describe("filter " + config.genericTestCollection2 + " with location queries", function(done) {
             var locationString = config.location.latitude + ", " + config.location.longitude;
             var query = "location within 1000 of " + locationString;
-            maxNumberOfEntities = Math.max(config.numberOfEntities, 100);
+            var maxNumberOfEntities = Math.max(config.numberOfEntities, 100);
             it("should return all results with a location within 1000m of " + locationString, function(done) {
                 entities.getWithQuery(config.genericTestCollection2, query, maxNumberOfEntities, function(err, body) {
                     should(err).be.null;

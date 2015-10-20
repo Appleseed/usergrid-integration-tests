@@ -14,6 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+'use strict';
 var entities = require("../../lib/entities");
 var should = require("should");
 var async = require('async');
@@ -23,7 +24,7 @@ module.exports = {
     test: function() {
         describe("filter " + config.genericTestCollection2 + " with '>' and '<' queries", function() {
             var query = "where intProperty > 30000";
-            numberOfEntities = Math.min(config.numberOfEntities, 10);
+            var numberOfEntities = Math.min(config.numberOfEntities, 10);
             it('should return a subset of results ' + query, function(done) {
                 this.timeout(10000);
                 entities.getWithQuery(config.genericTestCollection2, query, numberOfEntities, function(err, body) {

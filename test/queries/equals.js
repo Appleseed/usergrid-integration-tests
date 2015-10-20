@@ -14,6 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+'use strict';
 var entities = require("../../lib/entities");
 var should = require("should");
 var async = require('async');
@@ -23,7 +24,7 @@ module.exports = {
     test: function() {
         describe("filter " + config.genericTestCollection1 + " with '=' and '!=' queries", function(done) {
             var query1 = "where consistentProperty = 'somethingConsistent'";
-            maxNumberOfEntities = Math.max(config.numberOfEntities, 100);
+            var maxNumberOfEntities = Math.max(config.numberOfEntities, 100);
             it('should return ' + config.numberOfEntities + ' results ' + query1, function(done) {
                 entities.getWithQuery(config.genericTestCollection1, query1, maxNumberOfEntities, function(err, body) {
                     should(err).be.null;

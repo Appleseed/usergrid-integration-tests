@@ -1,3 +1,4 @@
 node_modules
 config/override.js
 config.js
+.idea

@@ -15,6 +15,7 @@
  * limitations under the License.
  */
 // here we're going to do teardown of BaaS environment - deletion of users, entities, etc.
+'use strict';
 var users = require("../lib/users");
 var entities = require("../lib/entities");
 var config = require("../config");

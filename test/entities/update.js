@@ -19,6 +19,7 @@ var random = require("../../lib/random");
 var should = require("should");
 var config = require('../../config');
 
+'use strict';
 module.exports = {
     test: function() {
         describe("update entity", function() {
