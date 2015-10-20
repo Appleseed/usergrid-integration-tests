@@ -27,6 +27,7 @@ module.exports = {
                     this.slow(10000);
                     this.timeout(15000);
                     connections.create(config.genericTestCollection1, config.consumableTestCollection, "consumed", function(err, body) {
+                        //TODO: test get connections
                         should(err).be.null;
                         body.entities.should.be.an.instanceOf(Array).and.have.lengthOf(1);
                         body.entities[0].type.should.equal(config.consumableTestCollection);
@@ -38,6 +39,8 @@ module.exports = {
                     this.slow(10000);
                     this.timeout(15000);
                     connections.create(config.genericTestCollection1, config.genericTestCollection2, "likes", function(err, body) {
+                        //TODO: test get connections
+
                         should(err).be.null;
                         body.entities.should.be.an.instanceOf(Array).and.have.lengthOf(1);
                         body.entities[0].type.should.equal(inflect.singularize(config.genericTestCollection2));

@@ -16,4 +16,6 @@
  */
 var chalk = require('chalk');
 var config = require('./config/');
-chalk.green('config is ' + JSON.stringify(config));
+console.log(
+  chalk.green('config is ' + JSON.stringify(config))
+);

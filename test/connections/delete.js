@@ -29,6 +29,8 @@ module.exports = {
                     this.slow(10000);
                     this.timeout(15000);
                     connections.delete(config.genericTestCollection1, config.consumableTestCollection, rel1, function(err, r) {
+                        //TODO: test get connections
+
                         should(err).be.null;
                         if (r.from.parent.metadata.hasOwnProperty("connections")) {
                             r.from.parent.metadata.connections.should.not.have.property(rel1);
@@ -53,6 +55,8 @@ module.exports = {
                     this.slow(10000);
                     this.timeout(15000);
                     connections.delete(config.genericTestCollection1, config.genericTestCollection2, rel2, function(err, r) {
+                        //TODO: test get connections
+
                         should(err).be.null;
                         if (r.from.parent.metadata.hasOwnProperty("connections")) {
                             r.from.parent.metadata.connections.should.not.have.property(rel2);
