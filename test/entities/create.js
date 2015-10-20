@@ -14,6 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+'use strict';
 var entities = require("../../lib/entities");
 var should = require("should");
 var config = require('../../config');
@@ -40,7 +41,7 @@ module.exports = {
             var numberOfRecordsConsistent = config.numberOfEntitiesConsistent;
             it("should create " + numberOfRecordsConsistent.toString() + " entities in the " + collectionName + " collection and check for consistency", function(done) {
                 this.timeout(60000*100);
-                bodyMap = {};
+                var bodyMap = {};
 
                 //this.slow(numberOfRecordsConsistent * 500);
                 async.times(config.consistentChecks, function(n, next) {
