@@ -24,6 +24,7 @@ module.exports = {
     test: function() {
         describe("sort " + config.genericTestCollection1 + " with 'order by' queries", function(done) {
             var query1 = "order by created desc";
+            var maxNumberOfEntities = Math.max(config.numberOfEntities, 100);
             it('should return a subset of results ' + query1.replace('order', 'ordered'), function(done) {
                 entities.getWithQuery(config.genericTestCollection1, query1, maxNumberOfEntities, function(err, body) {
                     should(err).be.null;
