@@ -14,7 +14,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-var config = require('./config/config.js');
-
-console.log('config is '+ JSON.stringify(config));
-
+var chalk = require('chalk');
+var config = require('./config/');
+chalk.green('config is ' + JSON.stringify(config));
